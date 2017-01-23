@@ -119,6 +119,12 @@ def isequal(zipcode):
 	else:
 		return None
 
+def allcodes():
+	"""List all zip codes"""
+	_cur.execute('SELECT ZIP_CODE FROM ZIPS')
+	row = _cur.fetchall()
+        return map(lambda x:x[0], row)
+
 def isinradius(point, distance):
 	"""Takes a tuple of (lat, lon) where lon and lat are floats, and a distance in miles. Returns a list of zipcodes near the point."""
 	zips_in_radius = list()
